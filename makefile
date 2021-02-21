@@ -1,2 +1,2 @@
 main: geometry.cpp
-	g++ geometry.cpp -Wall -o main
+	g++ geometry.cpp -Wall -Werror -L -o main
