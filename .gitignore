@@ -2,6 +2,9 @@
 .main.c.swp
 main.c~
 #main.c#
+.geometry.cpp.swp
+geometry.cpp~
+#geometry.cpp#
 a.out
 geometry
 output
