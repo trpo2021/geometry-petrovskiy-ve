@@ -1,0 +1,11 @@
+*.o
+.main.c.swp
+main.c~main.c
+.main.cpp.swp
+main.cpp~
+*.a
+*.d
+bin/geometry
+a.out
+output
+.vscode
