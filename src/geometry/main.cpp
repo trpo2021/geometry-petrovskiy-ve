@@ -3,13 +3,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+/*
 #include "circle_compute.h"
 #include "control_count.h"
 #include "point_check.h"
 #include "radius_check.h"
 #include "wkt_check.h"
-
+*/
 using namespace std;
 
 int main()
