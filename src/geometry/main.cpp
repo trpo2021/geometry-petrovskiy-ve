@@ -31,4 +31,5 @@ int main()
         cout << "P = " << result_calc.perimeter << endl;
         cout << "S = " << result_calc.area << endl;
     }
+    return 0;
 }
