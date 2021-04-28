@@ -13,7 +13,6 @@ LIB := obj/src/libgeometry/libgeometry.a
 OBJ := $(patsubst src/geometry/%.cpp, obj/src/geometry/%.o, $(SOURCES))
 
 all: $(TARGET)
-	./$(TARGET)
 
 
 $(TARGET): $(LIB) $(OBJ)
