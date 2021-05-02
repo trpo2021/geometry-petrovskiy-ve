@@ -12,8 +12,14 @@ LIB := obj/src/libgeometry/libgeometry.a
 
 OBJ := $(patsubst src/geometry/%.cpp, obj/src/geometry/%.o, $(SOURCES))
 
-all: $(TARGET)
+TEST := $(wildcard test/*.cpp)
+TESTOBJ := $(patsubst test/%.cpp, obj/test/%.o, $(TEST))
+TESTTARGET := bin/geometry-test
+CTEST := thirdparty/ctest.h
+DEPS = $(APP_OBJECTS:.o=.d) $(LIB_OBJECTS:.o=.d)
+DEPS_TEST = $(APP_OBJECTS_TEST:.o=.d) $(LIB_OBJECTS:.o=.d)
 
+all: $(TARGET)
 
 $(TARGET): $(LIB) $(OBJ)
 	$(CXX) $(CPPFLAGS) $(CFLAGS) -o $(TARGET) $(OBJ) -L. $(LIB) -I src/libgeometry
@@ -26,6 +32,16 @@ obj/src/libgeometry/%.o: src/libgeometry/%.cpp
 
 obj/src/geometry/%.o: src/geometry/%.cpp
 	$(CXX) $(CPPFLAGS) $(CFLAGS) -c  $< -o $@ -I src/libgeometry
+test: $(TESTTARGET)
+	./$(TESTTARGET)
+-include $(DEPS_TEST)
+
+$(TESTTARGET): $(TESTOBJ) $(LIB_PATH)
+	$(CXX) $(CFLAGS) $(CPPFLAGS) $^ -o $@ -L. $(LIB) -I src/libgeometry -I /thirdparty
+
+obj/test/%.o: test/%.cpp $(CTEST)
+	$(CXX) $(CPPFLAGS) $(CFLAGS) -c  $< -o $@ -I src/libgeometry -I thirdparty
+
 
 run: $(TARGET)
 	./$(TARGET)
@@ -35,5 +51,7 @@ clean:
 	find . -name "*.d" -exec rm {} \;
 	find . -name "*.o" -exec rm {} \;
 	find . -name "*.a" -exec rm {} \;
+	rm -rf bin/geometry
+	rm -rf bin/geometry-test
 
-.PHONY: clean run all
+.PHONY: clean run all test
