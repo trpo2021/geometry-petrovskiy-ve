@@ -10,9 +10,10 @@ struct Circle {
     int open_bracket;
     int close_bracket;
 };
-int control_count(int normal_value, int get_count);
-int point_check(char* figure, int indx1, int indx2);
-int radius_check(char* figure, int indx1, int indx2);
-int wkt_check(const char* figure, int length);
-Circle circle_wkt_check(char* figure, int circle_length);
+bool control_count(int normal_value, int get_count);
+int point_check(const char* figure, int indx1, int indx2);
+int radius_check(const char* figure, int indx1, int indx2);
+bool wkt_check(const char* figure, int length);
+bool circle_wkt_check(const char* figure, int circle_length);
+Circle tokens_return(const char* figure);
 #endif
