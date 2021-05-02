@@ -32,10 +32,10 @@ obj/src/libgeometry/%.o: src/libgeometry/%.cpp
 
 obj/src/geometry/%.o: src/geometry/%.cpp
 	$(CXX) $(CPPFLAGS) $(CFLAGS) -c  $< -o $@ -I src/libgeometry
-test: $(TESTTARGET)
-	./$(TESTTARGET)
+test: bin/geometry-test
+	./bin/geometry-test
 
-$(TESTTARGET): $(TESTOBJ) $(LIB_PATH)
+bin/geometry-test: $(TESTOBJ) $(LIB_PATH)
 	$(CXX) $(CFLAGS) $(CPPFLAGS) $^ -o $@ -L. $(LIB) -I src/libgeometry -I /thirdparty
 
 obj/test/%.o: test/%.cpp $(CTEST)
@@ -43,7 +43,7 @@ obj/test/%.o: test/%.cpp $(CTEST)
 
 
 run: $(TARGET)
-	./$(TARGET)
+	./bin/geometry
 
 
 clean:
