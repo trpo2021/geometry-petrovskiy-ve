@@ -34,7 +34,6 @@ obj/src/geometry/%.o: src/geometry/%.cpp
 	$(CXX) $(CPPFLAGS) $(CFLAGS) -c  $< -o $@ -I src/libgeometry
 test: $(TESTTARGET)
 	./$(TESTTARGET)
--include $(DEPS_TEST)
 
 $(TESTTARGET): $(TESTOBJ) $(LIB_PATH)
 	$(CXX) $(CFLAGS) $(CPPFLAGS) $^ -o $@ -L. $(LIB) -I src/libgeometry -I /thirdparty
