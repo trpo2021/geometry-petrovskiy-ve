@@ -16,10 +16,11 @@ int main()
     scanf("%[^\n]s", obj);
     int obj_length = strlen(obj);
 
-    int check_flag = wkt_check(obj, obj_length);
-    if (check_flag == 1) {
+    int check_flag_1 = wkt_check(obj, obj_length);
+    int check_flag_2 = circle_wkt_check(obj, obj_length);
+    if ((check_flag_1 == 1) && (check_flag_2 == 1)) {
         Circle tokens;
-        tokens = circle_wkt_check(obj, obj_length);
+        tokens = tokens_return(obj);
 
         Calculations result_calc;
         result_calc = circle_compute(tokens.r);
