@@ -53,7 +53,7 @@ int radius_check(char* figure, int indx1, int indx2)
     return checker;
 }
 
-int wkt_check(char* figure, int length)
+int wkt_check(const char* figure, int length)
 {
     int i, n;
     char example_circle[] = "circle(x y, r)";
@@ -68,7 +68,7 @@ int wkt_check(char* figure, int length)
                           << std::endl;
                 exit(EXIT_FAILURE);
             } else {
-                figure[i] = (figure[i]);
+                // figure[i] = (figure[i]);
                 continue;
             }
         }
