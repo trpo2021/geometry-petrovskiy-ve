@@ -6,6 +6,7 @@ main.cpp~
 *.a
 *.d
 bin/geometry
+bin/geometry-test
 a.out
 output
 .vscode
