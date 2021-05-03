@@ -26,19 +26,8 @@ int main()
         str = str + _char[i];
     }
 
-<<<<<<< HEAD
-    int check_flag_1 = wkt_check(obj, obj_length);
-    int check_flag_2 = circle_wkt_check(obj, obj_length);
-    int check_flag_3 = num_check(obj, obj_length);
-    if ((check_flag_1 == 1) && (check_flag_2 == 1) && (check_flag_3 == 1)) {
-||||||| cc6a09f
-    int check_flag_1 = wkt_check(obj, obj_length);
-    int check_flag_2 = circle_wkt_check(obj, obj_length);
-    if ((check_flag_1 == 1) && (check_flag_2 == 1)) {
-=======
     int check_flag = wkt_check(str);
     if (check_flag == 1) {
->>>>>>> test-re-create
         Circle tokens;
 
         tokens.x = atof(str.substr(str.find_first_of("(") + 1,

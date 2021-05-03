@@ -55,13 +55,7 @@ CTEST(input_suite, extra_spaces_in_input) // 6
 {
     const char* input_char = "circle (13 14,8)";
 
-<<<<<<< HEAD
-    const bool result = wkt_check(input_char, char_length);
-||||||| cc6a09f
-    const bool result = circle_wkt_check(input_char, char_length);
-=======
     const bool result = wkt_check(input_char);
->>>>>>> test-re-create
 
     ASSERT_FALSE(result);
 }
@@ -70,13 +64,7 @@ CTEST(input_suite, letter_in_x) // 7
 {
     const char* input_char = "circle(1a3 14,8)";
 
-<<<<<<< HEAD
-    const bool result = num_check(input_char, char_length);
-||||||| cc6a09f
-    const bool result = circle_wkt_check(input_char, char_length);
-=======
     const bool result = wkt_check(input_char);
->>>>>>> test-re-create
 
     ASSERT_FALSE(result);
 }
@@ -85,13 +73,7 @@ CTEST(input_suite, letter_in_y) // 8
 {
     const char* input_char = "circle(13 1c4,8)";
 
-<<<<<<< HEAD
-    const bool result = num_check(input_char, char_length);
-||||||| cc6a09f
-    const bool result = circle_wkt_check(input_char, char_length);
-=======
     const bool result = wkt_check(input_char);
->>>>>>> test-re-create
 
     ASSERT_FALSE(result);
 }
@@ -100,13 +82,7 @@ CTEST(input_suite, letter_in_rad) // 9
 {
     const char* input_char = "circle(13 14,8r)";
 
-<<<<<<< HEAD
-    const bool result = num_check(input_char, char_length);
-||||||| cc6a09f
-    const bool result = circle_wkt_check(input_char, char_length);
-=======
     const bool result = wkt_check(input_char);
->>>>>>> test-re-create
 
     ASSERT_FALSE(result);
 }
@@ -142,13 +118,7 @@ CTEST(input_suite, parametres_witout_figure) // 13
 {
     const char* input_char = "(13 14,8)";
 
-<<<<<<< HEAD
-    const bool result = wkt_check(input_char, char_length);
-||||||| cc6a09f
-    const bool result = circle_wkt_check(input_char, char_length);
-=======
     const bool result = wkt_check(input_char);
->>>>>>> test-re-create
 
     ASSERT_FALSE(result);
 }
@@ -220,13 +190,7 @@ CTEST(input_suite, negative_x) // 21
 {
     const char* input_char = "circle(-13 14,8)";
 
-<<<<<<< HEAD
-    const bool result = num_check(input_char, char_length);
-||||||| cc6a09f
-    const bool result = circle_wkt_check(input_char, char_length);
-=======
     const bool result = wkt_check(input_char);
->>>>>>> test-re-create
 
     ASSERT_FALSE(result);
 }
@@ -235,13 +199,7 @@ CTEST(input_suite, negative_y) // 22
 {
     const char* input_char = "circle(13 -14,8)";
 
-<<<<<<< HEAD
-    const bool result = num_check(input_char, char_length);
-||||||| cc6a09f
-    const bool result = circle_wkt_check(input_char, char_length);
-=======
     const bool result = wkt_check(input_char);
->>>>>>> test-re-create
 
     ASSERT_FALSE(result);
 }
@@ -250,13 +208,7 @@ CTEST(input_suite, negative_rad) // 23
 {
     const char* input_char = "circle(13 14,-8)";
 
-<<<<<<< HEAD
-    const bool result = num_check(input_char, char_length);
-||||||| cc6a09f
-    const bool result = circle_wkt_check(input_char, char_length);
-=======
     const bool result = wkt_check(input_char);
->>>>>>> test-re-create
 
     ASSERT_FALSE(result);
 }
@@ -265,13 +217,7 @@ CTEST(input_suite, negative_x_extra_space) // 24
 {
     const char* input_char = "circle(- 13 14,8)";
 
-<<<<<<< HEAD
-    const bool result = num_check(input_char, char_length);
-||||||| cc6a09f
-    const bool result = circle_wkt_check(input_char, char_length);
-=======
     const bool result = wkt_check(input_char);
->>>>>>> test-re-create
 
     ASSERT_FALSE(result);
 }
@@ -280,13 +226,7 @@ CTEST(input_suite, negative_y_extra_space) // 25
 {
     const char* input_char = "circle(13 - 14,8)";
 
-<<<<<<< HEAD
-    const bool result = num_check(input_char, char_length);
-||||||| cc6a09f
-    const bool result = circle_wkt_check(input_char, char_length);
-=======
     const bool result = wkt_check(input_char);
->>>>>>> test-re-create
 
     ASSERT_FALSE(result);
 }
@@ -295,13 +235,7 @@ CTEST(input_suite, negative_rad_extra_space) // 26
 {
     const char* input_char = "circle(13 14,- 8)";
 
-<<<<<<< HEAD
-    const bool result = num_check(input_char, char_length);
-||||||| cc6a09f
-    const bool result = circle_wkt_check(input_char, char_length);
-=======
     const bool result = wkt_check(input_char);
->>>>>>> test-re-create
 
     ASSERT_FALSE(result);
 }
