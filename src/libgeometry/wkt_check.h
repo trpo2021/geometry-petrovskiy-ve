@@ -16,4 +16,5 @@ int radius_check(const char* figure, int indx1, int indx2);
 bool wkt_check(const char* figure, int length);
 bool circle_wkt_check(const char* figure, int circle_length);
 Circle tokens_return(const char* figure);
+bool num_check(const char* figure, int circle_length);
 #endif

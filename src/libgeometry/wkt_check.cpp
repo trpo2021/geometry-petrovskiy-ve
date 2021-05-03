@@ -1,5 +1,7 @@
 #include "wkt_check.h"
 #include <iostream>
+#include <string>
+using namespace std;
 
 bool control_count(int normal_value, int get_count)
 {
@@ -42,7 +44,8 @@ int radius_check(const char* figure, int indx1, int indx2)
             checker = 1;
         } else if (
                 (figure[i] == ' ')
-                || (((figure[i] == '+') || (figure[i] == '.'))
+                || (((figure[i - 1] != '-') || (figure[i] == '+')
+                     || (figure[i] == '.'))
                     && (isdigit(figure[i + 1]) != 0)
                     && (isdigit(figure[i - 1]) != 0))) {
             continue;
@@ -65,7 +68,7 @@ bool wkt_check(const char* figure, int length)
     for (i = 0; (figure[i] != '(') && (i < length); ++i)
         n = i;
     if (n == 5) {
-        for (i = 0; i < n; ++i) {
+        for (i = 0; i <= n; ++i) {
             if ((figure[i]) != example_circle[i]) {
                 std::cout << "\nError at column" << i << ": expected 'circle'"
                           << std::endl;
@@ -115,7 +118,7 @@ bool circle_wkt_check(const char* figure, int circle_length)
         exit(EXIT_FAILURE);
     } else {
         if (figure[tokens.close_bracket + 1] != '\0') {
-            std::cout << "\nError at column" << tokens.close_bracket + 1
+            std::cout << "\nError at column " << tokens.close_bracket + 1
                       << ": unexpected token" << std::endl;
             return 0;
             exit(EXIT_FAILURE);
@@ -136,7 +139,7 @@ Circle tokens_return(const char* figure)
             coordX[j] = figure[i];
             j++;
         }
-        tokens.x = atoi(coordX);
+        tokens.x = atof(coordX);
 
         checker = point_check(figure, tokens.space, tokens.comma);
         if (checker != 0) {
@@ -146,7 +149,7 @@ Circle tokens_return(const char* figure)
                 coordY[j] = figure[i];
                 j++;
             }
-            tokens.y = atoi(coordY);
+            tokens.y = atof(coordY);
 
             checker = radius_check(figure, tokens.comma, tokens.close_bracket);
             if (checker != 0) {
@@ -161,4 +164,24 @@ Circle tokens_return(const char* figure)
         }
     }
     return tokens;
+}
+
+bool num_check(const char* figure, int circle_length)
+{
+    string str = "";
+    string tmp_string = "";
+    for (int i = 0; i < circle_length; i++) {
+        str = str + figure[i];
+    }
+    tmp_string = str.substr(str.find('('), str.find(')'));
+
+    for (auto chr : tmp_string)
+        if (chr != ',' && chr != ' ' && (chr >= '0' && chr <= '9') && chr != '('
+            && chr != ')' && chr != '.') {
+            std::cout << "\nError: unexpected values" << std::endl;
+            return 0;
+            exit(EXIT_FAILURE);
+        } else
+            return 1;
+    return 0;
 }
