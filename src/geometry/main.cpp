@@ -9,14 +9,9 @@
 
 using namespace std;
 
-void clear()
-{
-    cout << "\x1B[2J\x1B[H";
-}
-
 int main()
 {
-    clear();
+    cout << "\x1B[2J\x1B[H";
     char _char[25];
     cout << "Enter figure: ";
     scanf("%[^\n]s", _char);
