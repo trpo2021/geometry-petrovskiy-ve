@@ -18,7 +18,7 @@ int main()
     int length = strlen(_char);
     string str = "";
     for (int i = 0; i < length; i++) {
-        str = str + _char[i];
+        str += _char[i];
     }
 
     int check_flag = wkt_check(str);

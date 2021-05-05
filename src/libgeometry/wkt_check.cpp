@@ -31,8 +31,6 @@ bool wkt_check(string str)
             tokens.r_bracket++;
     if (tokens.r_bracket != 1)
         return 0;
-    if (str.find('(') > str.find(')'))
-        return 0;
     if (str.find(' ') > str.find(','))
         return 0;
 
