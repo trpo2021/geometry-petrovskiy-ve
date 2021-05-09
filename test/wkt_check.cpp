@@ -239,3 +239,39 @@ CTEST(input_suite, negative_rad_extra_space) // 26
 
     ASSERT_FALSE(result);
 }
+
+CTEST(input_suite, no_left_bracket) // 27
+{
+    const char* input_char = "circle13 14,8)";
+
+    const bool result = wkt_check(input_char);
+
+    ASSERT_FALSE(result);
+}
+
+CTEST(input_suite, no_right_bracket) // 28
+{
+    const char* input_char = "circle13 14,8)";
+
+    const bool result = wkt_check(input_char);
+
+    ASSERT_FALSE(result);
+}
+
+CTEST(input_suite, no_comma) // 29
+{
+    const char* input_char = "circle(13 148)";
+
+    const bool result = wkt_check(input_char);
+
+    ASSERT_FALSE(result);
+}
+
+CTEST(input_suite, no_space) // 30
+{
+    const char* input_char = "circle(1314,8)";
+
+    const bool result = wkt_check(input_char);
+
+    ASSERT_FALSE(result);
+}
