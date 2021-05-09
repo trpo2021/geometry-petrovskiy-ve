@@ -275,3 +275,21 @@ CTEST(input_suite, no_space) // 30
 
     ASSERT_FALSE(result);
 }
+
+CTEST(input_suite, too_big_values) // 31
+{
+    const char* input_char = "circle(131313131313 141414141414,88888888888)";
+
+    const bool result = wkt_check(input_char);
+
+    ASSERT_TRUE(result);
+}
+
+CTEST(input_suite, too_small_values) // 32
+{
+    const char* input_char = "circle(0.0000000013 0.0000000014,0.000000008)";
+
+    const bool result = wkt_check(input_char);
+
+    ASSERT_TRUE(result);
+}
